@@ -1,6 +1,18 @@
 name: YNOV pipeline CI/CD
 
-on: [push, workflow_dispatch]
+
+on:
+  push:
+  workflow_dispatch:
+    inputs:
+      server-python-version:
+        type: choice
+        description: Which Python version will be runned on production server?
+        options:
+        - 3.9
+        - 3.10
+        - 3.11
+        required: true
 
 jobs:
   build:
@@ -55,10 +67,10 @@ jobs:
       - name: MEP
         run: echo "MEP on server"
 
-      - name: Setup Python 3.10
+      - name: Setup Python ${{ github.event.inputs.server-python-version }}
         uses: actions/setup-python@v4
         with:
-          python-version: '3.10'
+          python-version: '${{ github.event.inputs.server-python-version }}'
 
       - name: Test if website is up 🚀
         run: |
