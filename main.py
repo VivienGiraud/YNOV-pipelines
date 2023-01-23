@@ -2,20 +2,20 @@ from bottle import route, run, template
 from misc import add
 
 
-@route('/hello/<name>')
+@route("/hello/<name>")
 def index(name):
-    return template('<b>Hello {{name}}</b>!', name=name)
+    return template("<b>Hello {{name}}</b>!", name=name)
 
 
-@route('/')
+@route("/")
 def homepage():
-    return '<b>Hello you</b>!'
+    return "<b>Hello you</b>!"
 
 
-@route('/add/<a>/<b>')
-@route('/add/<a>/<b>/')
+@route("/add/<a>/<b>")
+@route("/add/<a>/<b>/")
 def route_add(a, b):
-    return {'result': add(a, b)}
+    return {"result": add(a, b)}
 
 
-run(host='localhost', port=8080, reloader=True)
+run(host="localhost", port=8080, reloader=True)
