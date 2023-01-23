@@ -1,6 +1,6 @@
 name: YNOV pipeline CI/CD
 
-on: [push]
+on: [push, workflow_dispatch]
 
 jobs:
   build:
@@ -25,7 +25,6 @@ jobs:
       - name: Lint with black
         run: |
           black . --check
-
 
   test:
     runs-on: ubuntu-latest
