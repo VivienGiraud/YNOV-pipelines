@@ -18,7 +18,6 @@ jobs:
   build:
     name: Lint with Flake8 and Black
     runs-on: ubuntu-latest
-    if: startsWith(github.head_ref, 'hotfix') != true
     steps:
       - uses: actions/checkout@v3
       - name: Setup Python 3.10
@@ -28,8 +27,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          echo ${{github.head_ref}}
-          echo ${{github.ref}}
+          echo ${{github.ref_name}}
           python -m pip install --upgrade pip
           pip install flake8 black
 
@@ -42,7 +40,9 @@ jobs:
           black . --check
 
   test:
+    name: Tests
     runs-on: ubuntu-latest
+    if: startsWith(github.ref_name, 'hotfix') != true
     needs: build
     strategy:
       matrix:
