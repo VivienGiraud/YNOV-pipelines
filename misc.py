@@ -5,7 +5,7 @@ def add(a, b):
     >>> add(2, 3)
     5
     >>> add(3, 3)
-    8
+    7
     """
 
     return int(a) + int(b)
