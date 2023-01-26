@@ -28,6 +28,8 @@ jobs:
 
       - name: Install dependencies
         run: |
+          echo ${{github.head_ref}}
+          echo ${{github.ref}}
           python -m pip install --upgrade pip
           pip install flake8 black
 
