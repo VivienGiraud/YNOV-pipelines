@@ -4,4 +4,4 @@
 
 ![Coverage badge](https://viviengiraud.github.io/YNOV-pipelines/assets/coverage.svg)
 
-![Link to code coverage in Github Pages](https://viviengiraud.github.io/YNOV-pipelines/index.html)
+[Link to code coverage in Github Pages](https://viviengiraud.github.io/YNOV-pipelines/index.html)
