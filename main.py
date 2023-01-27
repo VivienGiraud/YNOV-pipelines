@@ -9,6 +9,7 @@ def index(name):
 
 
 @route("/")
+@route("/index")
 def homepage():
     return "<b>Hello you</b>!"
 
